@@ -2,32 +2,6 @@ from twitter import *
 import urllib
 import json
 
-def showTweets(x, num):
-    # display a number of new tweets and usernames
-    for i in range(0, num):
-        line1 = (x[i]['user']['screen_name'])
-        line2 = (x[i]['text'])
-        #w = Label(master, text=line1 + "\n" + line2 + "\n\n")
-       # print line1.encode('utf-8') + " " + line2.encode('utf-8')
-       
-
-def getTweets():
-
-    x = t.statuses.home_timeline(screen_name="kumarnitin917")
-    return x
-
-
-def tweet():
-
-    global entryWidget
-
-    if entryWidget.get().strip() == "":
-        print("Empty")
-    else:
-        t.statuses.update(status=entryWidget.get().strip())
-        entryWidget.delete(0,END)
-        print("working")
-
 def getTrends(country_id):
     
     try:
@@ -49,17 +23,38 @@ numberOfTweets = 10
 
 #showTweets(getTweets(), numberOfTweets)
 
-
+trending_tweets = []
 with open('woeid.json') as data_file:
     woeid_list = json.load(data_file)
 
 length = len(woeid_list)
-
 print length
-for i in range(0,length):
-        try:    
-            print str(woeid_list[i]['country_name'])
-            r = t.trends.place(_id = woeid_list[i]['woeid']) 
-            print r
-        except:
-            print "error"
+
+with open("trending_tweets.json",mode="r") as tweets_file:
+    #feeds = json.load(tweets_file)
+    #tweets_file.write(json.dumps([]))
+    feeds = json.load(tweets_file)
+    for i in range(0,length):
+        element = {};
+        element['tweets'] = [{}]
+        feeds[0][woeid_list[i]['country_name']] = element
+
+    for i in range(0,length):
+            try:    
+                print str(woeid_list[i]['country_name'])
+                r = t.trends.place(_id = woeid_list[i]['woeid']) 
+                print r
+                element = {};
+                for j in range(0,len(r[0]['trends'])):
+                    element[str(j)] = r[0]['trends'][j]['name']
+                    feeds[0][woeid_list[i]['country_name']]['tweets'][j] = element
+
+            except Exception as e: 
+                print str(e)
+
+
+with open("trending_tweets.json",mode="w") as tweets_file:
+    try:
+         tweets_file.write(json.dumps(feeds))
+    except Exception as e: 
+                print str(e)

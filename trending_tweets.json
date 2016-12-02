@@ -1,0 +1,62 @@
+[{
+	"Canada": {
+		"tweets": [{
+			"1": "#MakeAFilmSmellTerrible",
+			"0": "#FridayFeeling"
+		}]
+	},
+	"Colombia": {
+		"tweets": [{
+			"1": "#PremioDePazAlTerrorismo",
+			"0": "Esperanza G\u00f3mez"
+		}]
+	},
+	"India": {
+		"tweets": [{
+			"1": "#TataDoCoMoBomb",
+			"0": "#100FavSongsOfTHALA"
+		}]
+	},
+	"United Kingdom": {
+		"tweets": [{
+			"1": "Nico Rosberg",
+			"0": "#MakeAFilmSmellTerrible"
+		}]
+	},
+	"Guatemala": {
+		"tweets": [{
+			"1": "Pavel Centeno",
+			"0": "#FelinaTambor"
+		}]
+	},
+	"Chile": {
+		"tweets": [{
+			"1": "#AmoresDeMercado",
+			"0": "#HayCosasRicasY"
+		}]
+	},
+	"Dominican Republic": {
+		"tweets": [{
+			"1": "Mercosur",
+			"0": "Doll House"
+		}]
+	},
+	"Venezuela": {
+		"tweets": [{
+			"1": "#02Dic",
+			"0": "#PrendanLaLuzEsDiciembre"
+		}]
+	},
+	"Argentina": {
+		"tweets": [{
+			"1": "La Cope",
+			"0": "#FelicesPorTuRegresoAM"
+		}]
+	},
+	"Ecuador": {
+		"tweets": [{
+			"1": "#Ca\u00f1aCincae",
+			"0": "#La15porTuGenteBarce"
+		}]
+	}
+}]
