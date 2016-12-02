@@ -36,7 +36,7 @@ with open("trending_tweets.json",mode="r") as tweets_file:
     feeds = json.load(tweets_file)
     for i in range(0,length):
         element = {};
-        element['tweets'] = [{}]
+        element['tweets'] = {}
         feeds[0][woeid_list[i]['country_name']] = element
 
     for i in range(0,length):
@@ -45,9 +45,12 @@ with open("trending_tweets.json",mode="r") as tweets_file:
                 r = t.trends.place(_id = woeid_list[i]['woeid']) 
                 print r
                 element = {};
+                print len(r[0]['trends'])
+                print "\n\n\n\n\n"
                 for j in range(0,len(r[0]['trends'])):
                     element[str(j)] = r[0]['trends'][j]['name']
-                    feeds[0][woeid_list[i]['country_name']]['tweets'][j] = element
+                    feeds[0][woeid_list[i]['country_name']]['tweets'][j] = element[str(j)]
+                    #r[0]['trends'][j]['name']
 
             except Exception as e: 
                 print str(e)
