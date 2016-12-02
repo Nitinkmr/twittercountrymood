@@ -61,3 +61,4 @@ with open("trending_tweets.json",mode="w") as tweets_file:
          tweets_file.write(json.dumps(feeds))
     except Exception as e: 
                 print str(e)
+
