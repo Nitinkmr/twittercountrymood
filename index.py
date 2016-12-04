@@ -5,7 +5,7 @@ import json
 def getTrends(country_id):
     
     try:
-        r = t.trends.place(_id = country_id)#urllib.urlopen('https://api.twitter.com/1.1/trends/place.json?id=1').read()
+        r = t.trends.place(_id = country_id)
         print r
     except:
         print "error"
@@ -14,14 +14,11 @@ def getTrends(country_id):
 # Put in token, token_key, con_secret, con_secret_key
 
 t = Twitter(
-    auth=OAuth('2955186811-3knD17GyGB21G1obeECLiMA5NsJTNU1tkeBG94J', 
-               '7Ba84Alidfz9nAZWcb33EFW2DmeCyxr9SJoXvVYyEkzDx',
-               'UtvgXDJeHGZoL8naPRBVQJBTU',
-               'xUO1RzRoIqQBP5pMhiscLBDyRH9cLEUtw8WtgZ9RvFI721MR8I'))
+    auth=OAuth('YOUR TOKEN', 
+               'YOUR TOKEN_KEY',
+               'YOUR CONSUMER_SECRET',
+               'YOUR CONSUMER_SECRET_KEY'))
 
-numberOfTweets = 10
-
-#showTweets(getTweets(), numberOfTweets)
 
 trending_tweets = []
 with open('woeid.json') as data_file:
